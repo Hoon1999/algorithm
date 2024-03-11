@@ -6,6 +6,8 @@ class Solution {
         
         // 구현
         for(int i = 2 ; i <= n; i++) {
+            // i 가 소수이면, n을 나눠본다.
+            // n이 i로 나누어 떨어지면 소인수이다.
             if(isPrime(i)) {
                 if(n % i == 0) {
                     answer = addElement(answer, i);
