@@ -2,28 +2,25 @@
 
 using namespace std;
 
-int cntArr[26];
+int n;
+int cnt[26];
+string str;
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    
-    int k;
-    string name;
-    bool flag = false;
-    cin >> k;
-    
-    for(int i = 0; i < k; ++i) {
-        cin >> name;
-        cntArr[name[0] - 'a']++;
+    char c = '\0';
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        cin >> str;
+        cnt[str[0] - 'a']++;
     }
-    
-    for(int i = 0 ; i < 26; ++i) {
-        if(cntArr[i] >= 5){
-            cout << (char)(i + 'a');
-            flag = true;
+
+    for(int i = 0; i < 26; i++) {
+        if(cnt[i] >= 5) {
+            c = i + 'a';
+            cout << c;
         }
     }
-    if(!flag)
+    if(c == '\0')
         cout << "PREDAJA";
+    cout << "\n";
     return 0;
 }
