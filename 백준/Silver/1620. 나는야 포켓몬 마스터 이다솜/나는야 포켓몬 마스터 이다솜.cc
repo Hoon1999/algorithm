@@ -2,31 +2,29 @@
 
 using namespace std;
 
+int n, m;
+map<string, int> mp;
+string arr[100004];
+string str;
+
 int main() {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    
-    int n, m;
-    map<int, string> myMap;
-    map<string, int> myMapRe; //reverse
-    string name;
+    cin.tie(NULL); cout.tie(NULL);
 
     cin >> n >> m;
-    
-    for(int i = 1; i <= n; ++i) {
-        cin >> name;
-        myMap.insert({i, name});
-        myMapRe.insert({name, i});
+
+    for(int i = 1; i <= n; i++ ) {
+        cin >> str;
+        mp.insert({str, i});
+        arr[i] = str;
     }
-    for(int i = 0; i < m; ++i) {
-        cin >> name;
-        if(atoi(name.c_str()) == 0) {
-            // atoi 의 리턴 값이 0 이면, name 변수는 숫자 0 또는 문자열이다.
-            cout << myMapRe.find(name)->second << "\n";
+
+    for(int i = 0; i < m; i++) {
+        cin >> str;
+        if(atoi(str.c_str()) == 0) {
+            cout << (mp.find(str))->second << "\n";
         } else {
-            // 숫자를 입력으로 받은 경우.
-            int key = atoi(name.c_str());
-            cout << myMap.find(key)->second << "\n";
+            cout << arr[atoi(str.c_str())] << "\n";
         }
     }
     return 0;
